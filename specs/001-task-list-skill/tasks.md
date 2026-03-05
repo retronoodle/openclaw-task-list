@@ -20,9 +20,9 @@ quality gate requires tests pass before feature is complete.
 
 **Purpose**: Directory structure, SKILL.md skeleton, and shared shell helpers.
 
-- [ ] T001 Create skill directory tree: `task-list/`, `task-list/scripts/`, `task-list/tests/` per plan.md structure
-- [ ] T002 Create skeleton `task-list/SKILL.md` with valid frontmatter: `name: task-list`, single-line `description`, `user-invocable: true`, `metadata: {"openclaw":{"emoji":"✅","os":["darwin","linux"],"requires":{"bins":["sqlite3"]}}}`
-- [ ] T003 Create `task-list/scripts/lib.sh` — export `DB` path constant (`$HOME/.openclaw/skills/task-list/tasks.db`), `safe_str()` helper (single-quote doubling), `safe_int()` helper (`printf '%d'`), status/priority allowlist validators
+- [X] T001 Create skill directory tree: `task-list/`, `task-list/scripts/`, `task-list/tests/` per plan.md structure
+- [X] T002 Create skeleton `task-list/SKILL.md` with valid frontmatter: `name: task-list`, single-line `description`, `user-invocable: true`, `metadata: {"openclaw":{"emoji":"✅","os":["darwin","linux"],"requires":{"bins":["sqlite3"]}}}`
+- [X] T003 Create `task-list/scripts/lib.sh` — export `DB` path constant (`$HOME/.openclaw/skills/task-list/tasks.db`), `safe_str()` helper (single-quote doubling), `safe_int()` helper (`printf '%d'`), status/priority allowlist validators
 
 ---
 
