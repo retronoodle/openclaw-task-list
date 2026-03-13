@@ -32,7 +32,7 @@ quality gate requires tests pass before feature is complete.
 
 **⚠️ CRITICAL**: No user story work can begin until this phase is complete.
 
-- [ ] T004 Create `task-list/scripts/db-init.sh` — source `lib.sh`, mkdir DB parent dir, run `CREATE TABLE IF NOT EXISTS tasks (...)` per data-model.md schema with all CHECK constraints, create three indexes (due_at, status, category), exit 2 on DB error
+- [X] T004 Create `task-list/scripts/db-init.sh` — source `lib.sh`, mkdir DB parent dir, run `CREATE TABLE IF NOT EXISTS tasks (...)` per data-model.md schema with all CHECK constraints, create three indexes (due_at, status, category), exit 2 on DB error
 
 **Checkpoint**: DB schema ready — user story implementation can now begin.
 
@@ -48,14 +48,14 @@ quality gate requires tests pass before feature is complete.
 
 > **Write tests FIRST — verify they FAIL before implementing T006–T009**
 
-- [ ] T005 [P] [US1] Create `task-list/tests/test-create-update-delete.sh` — temp DB via `mktemp`, `trap` cleanup, assert helpers (assert_eq, assert_json_field), test cases: (a) create with title only returns id+status=new, (b) blank title is rejected exit 1, (c) update status to done sets completed_at, (d) update status away from done clears completed_at, (e) delete returns deleted:true, (f) get after delete returns error
+- [X] T005 [P] [US1] Create `task-list/tests/test-create-update-delete.sh` — temp DB via `mktemp`, `trap` cleanup, assert helpers (assert_eq, assert_json_field), test cases: (a) create with title only returns id+status=new, (b) blank title is rejected exit 1, (c) update status to done sets completed_at, (d) update status away from done clears completed_at, (e) delete returns deleted:true, (f) get after delete returns error
 
 ### Implementation for User Story 1
 
-- [ ] T006 [P] [US1] Implement `task-list/scripts/task-create.sh` — parse flags (--title, --notes, --due-at, --category, --priority), call `db-init.sh`, validate title non-blank and priority allowlist and due_at format, INSERT with `safe_str()`/`safe_int()`, return task JSON via `sqlite3 -json`
-- [ ] T007 [P] [US1] Implement `task-list/scripts/task-get.sh` — parse --id, call `db-init.sh`, `safe_int()` cast, SELECT by id, exit 1 with error if not found, return task JSON via `sqlite3 -json`
-- [ ] T008 [US1] Implement `task-list/scripts/task-update.sh` — parse all update flags (--title, --notes, --due-at, --category, --priority, --status, --clear-due-at, --clear-category, --clear-notes), require at least one field, build SET clause safely, set `updated_at` always, set/clear `completed_at` on status transition, return updated task JSON (depends on T006 patterns established)
-- [ ] T009 [US1] Implement `task-list/scripts/task-delete.sh` — parse --id, `safe_int()` cast, verify task exists, DELETE, return `{"deleted":true,"id":N}` JSON
+- [X] T006 [P] [US1] Implement `task-list/scripts/task-create.sh` — parse flags (--title, --notes, --due-at, --category, --priority), call `db-init.sh`, validate title non-blank and priority allowlist and due_at format, INSERT with `safe_str()`/`safe_int()`, return task JSON via `sqlite3 -json`
+- [X] T007 [P] [US1] Implement `task-list/scripts/task-get.sh` — parse --id, call `db-init.sh`, `safe_int()` cast, SELECT by id, exit 1 with error if not found, return task JSON via `sqlite3 -json`
+- [X] T008 [US1] Implement `task-list/scripts/task-update.sh` — parse all update flags (--title, --notes, --due-at, --category, --priority, --status, --clear-due-at, --clear-category, --clear-notes), require at least one field, build SET clause safely, set `updated_at` always, set/clear `completed_at` on status transition, return updated task JSON (depends on T006 patterns established)
+- [X] T009 [US1] Implement `task-list/scripts/task-delete.sh` — parse --id, `safe_int()` cast, verify task exists, DELETE, return `{"deleted":true,"id":N}` JSON
 
 **Checkpoint**: User Story 1 fully functional — run `test-create-update-delete.sh` independently.
 

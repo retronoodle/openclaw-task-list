@@ -2,7 +2,7 @@
 # lib.sh — shared constants and helpers for task-list scripts
 # Source this file; do not execute directly.
 
-DB="${HOME}/.openclaw/skills/task-list/tasks.db"
+DB="${TASK_LIST_DB:-${HOME}/.openclaw/skills/task-list/tasks.db}"
 
 # safe_str VAR — escape single quotes by doubling for SQL string literals
 safe_str() {
